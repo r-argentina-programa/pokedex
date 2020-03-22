@@ -95,7 +95,6 @@ function obtenerParametrosDeURL(url) {
 
 function cargarPokemon(nombre) {
   fetch(`https://pokeapi.co/api/v2/pokemon/${nombre}`).then((r) => r.json()).then((pokemon) => {
-    console.log(pokemon);
     mostrarPokemon(pokemon);
   });
 }
