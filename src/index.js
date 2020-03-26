@@ -5,7 +5,7 @@ import mostrarPaginador from './ui/paginador.js';
 import mostrarPokemon from './ui/pokemon.js';
 import obtenerParametrosDeURL from './utilidades/utilidades.js';
 
-function cambiarPagina(pagina) {
+async function cambiarPagina(pagina) {
   const POKEMONES_POR_PAGINA = 20;
   let paginaActual;
   let offset;
@@ -23,17 +23,22 @@ function cambiarPagina(pagina) {
 
   actualizarTextoIndicePokemones('Cargando...');
 
-  return cargarPokemones(offset, limit).then((respuesta) => {
-    const {
-      count: totalPokemones, results: pokemones, next: urlSiguiente, previous: urlAnterior,
-    } = respuesta;
-    mostrarTotalPokemones(totalPokemones);
-    mostrarListadoPokemones(pokemones, (nombre) => {
-      actualizarTextoAyuda('Cargando...');
-      cargarPokemon(nombre).then((pokemonData) => mostrarPokemon(pokemonData));
-    });
-    mostrarPaginador(totalPokemones, paginaActual, urlSiguiente, urlAnterior, cambiarPagina);
+  const respuesta = await cargarPokemones(offset, limit);
+
+  const {
+    count: totalPokemones,
+    results: pokemones,
+    next: urlSiguiente,
+    previous: urlAnterior,
+  } = respuesta;
+
+  mostrarTotalPokemones(totalPokemones);
+  mostrarListadoPokemones(pokemones, async (nombre) => {
+    actualizarTextoAyuda('Cargando...');
+    mostrarPokemon(await cargarPokemon(nombre));
   });
+
+  mostrarPaginador(totalPokemones, paginaActual, urlSiguiente, urlAnterior, cambiarPagina);
 }
 
-cambiarPagina(1);
+cambiarPagina(1).catch((e) => console.error(e));
