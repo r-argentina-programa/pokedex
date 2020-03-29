@@ -1,7 +1,8 @@
 {
     "env": {
         "browser": true,
-        "es6": true
+        "es6": true,
+        "cypress/globals": true
     },
     "extends": [
         "airbnb-base"
@@ -14,6 +15,9 @@
         "ecmaVersion": 2018,
         "sourceType": "module"
     },
+    "plugins": [
+        "cypress"
+    ],
     "rules": {
         "import/extensions": ["error",
             {
