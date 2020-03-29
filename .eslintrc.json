@@ -1,28 +1,31 @@
 {
-    "env": {
-        "browser": true,
-        "es6": true,
-        "cypress/globals": true
-    },
-    "extends": [
-        "airbnb-base"
-    ],
-    "globals": {
-        "Atomics": "readonly",
-        "SharedArrayBuffer": "readonly"
-    },
-    "parserOptions": {
-        "ecmaVersion": 2018,
-        "sourceType": "module"
-    },
-    "plugins": [
-        "cypress"
-    ],
-    "rules": {
-        "import/extensions": ["error",
-            {
-                "js": "always"
-            }
-        ]
-    }
+  "env": {
+    "browser": true,
+    "es6": true,
+    "cypress/globals": true,
+    "jest/globals": true
+  },
+  "extends": [
+    "airbnb-base"
+  ],
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "plugins": [
+    "cypress",
+    "jest"
+  ],
+  "rules": {
+    "import/extensions": [
+      "error",
+      {
+        "js": "always"
+      }
+    ]
+  }
 }
