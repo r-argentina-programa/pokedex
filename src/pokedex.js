@@ -42,6 +42,6 @@ async function cambiarPagina(pagina) {
 }
 
 export default function inicializar() {
-  cambiarPagina(1)
+  return cambiarPagina(1)
     .catch((e) => console.error(e));
 }
