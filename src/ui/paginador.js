@@ -65,7 +65,7 @@ export default function mostrarPaginador(
   }
   $paginador.appendChild($paginaSiguiente);
 
-  $paginador.addEventListener('click', (e) => {
+  $paginador.onclick = (e) => {
     manejarCambioPagina(e, callbackPaginaSeleccionada);
-  });
+  };
 }
