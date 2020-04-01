@@ -13,7 +13,7 @@ export function mostrarListadoPokemones(pokemones, pokemonSeleccionadoCallback =
     $link.className = 'list-group-item list-group-item-action';
     $link.setAttribute('href', '#');
     $link.textContent = nombre;
-    $link.addEventListener('click', () => pokemonSeleccionadoCallback(nombre));
+    $link.onclick = () => pokemonSeleccionadoCallback(nombre);
     $indice.appendChild($link);
   });
 }
