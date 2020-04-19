@@ -60,4 +60,4 @@ export default `<div class="container">
             </div>
         </div>
     </div>
-</div>`
+</div>`;

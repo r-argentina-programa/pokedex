@@ -1,4 +1,8 @@
-import { cargarPokemon as cargarPokemonDeApi, cargarPokemones as cargarPokemonesDeApi } from '../api/pokemon.js';
+import {
+  cargarPokemon as cargarPokemonDeApi,
+  cargarPokemones as cargarPokemonesDeApi,
+} from '../api/pokemon.js';
+
 import {
   cargarPokemon as cargarPokemonDeLocalStorage,
   cargarPokemones as cargarPokemonesDeLocalStorage,

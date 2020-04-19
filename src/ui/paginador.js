@@ -12,7 +12,7 @@ function crearItemPaginador(texto, url = '#') {
   return $item;
 }
 
-export function manejarCambioPagina(e, callbackPaginaSeleccionada) {
+export function manejarCambioPagina(e, callbackPaginaSeleccionada = () => {}) {
   e.preventDefault();
   const { target } = e;
   const href = target.getAttribute('href');
@@ -51,7 +51,7 @@ export default function mostrarPaginador(
   for (let i = 0; i < totalPaginas; i += 1) {
     const numeroPagina = i + 1;
     const $pagina = crearItemPaginador(numeroPagina);
-    if (i === (paginaActual - 1)) {
+    if (numeroPagina === paginaActual) {
       $pagina.classList.add('active');
     }
     $paginador.appendChild($pagina);
