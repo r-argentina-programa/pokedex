@@ -23,22 +23,21 @@ async function cambiarPagina(pagina) {
 
   actualizarTextoIndicePokemones('Cargando...');
 
-  const respuesta = await cargarPokemones(offset, limit);
+  const listadoPokemones = await cargarPokemones(offset, limit);
 
-  const {
-    count: totalPokemones,
-    results: pokemones,
-    next: urlSiguiente,
-    previous: urlAnterior,
-  } = respuesta;
-
-  mostrarTotalPokemones(totalPokemones);
-  mostrarListadoPokemones(pokemones, async (nombre) => {
+  mostrarTotalPokemones(listadoPokemones.total);
+  mostrarListadoPokemones(listadoPokemones.nombresPokemones, async (nombre) => {
     actualizarTextoAyuda('Cargando...');
     mostrarPokemon(await cargarPokemon(nombre));
   });
 
-  mostrarPaginador(totalPokemones, paginaActual, urlSiguiente, urlAnterior, cambiarPagina);
+  mostrarPaginador(
+    listadoPokemones.total,
+    paginaActual,
+    listadoPokemones.siguienteUrl,
+    listadoPokemones.anteriorUrl,
+    cambiarPagina,
+  );
 }
 
 export default function inicializar() {

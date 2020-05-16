@@ -1,14 +1,26 @@
+/**
+ * @typedef {import('../entidades/listadoPokemones').default} ListadoPokemones
+ */
+
 export function actualizarTextoIndicePokemones(texto) {
   const $indice = document.querySelector('#indice');
   $indice.textContent = texto;
 }
 
-export function mostrarListadoPokemones(pokemones, pokemonSeleccionadoCallback = () => {}) {
+/**
+ * @callback pokemonSeleccionadoCallback
+ * @param {string} nombre
+ */
+
+/**
+ * @param {Array<string>} nombresPokemones
+ * @param {pokemonSeleccionadoCallback} pokemonSeleccionadoCallback
+ */
+export function mostrarListadoPokemones(nombresPokemones, pokemonSeleccionadoCallback = () => {}) {
   const $indice = document.querySelector('#indice');
   $indice.innerHTML = '';
 
-  pokemones.forEach((pokemon) => {
-    const { name: nombre } = pokemon;
+  nombresPokemones.forEach((nombre) => {
     const $link = document.createElement('a');
     $link.className = 'list-group-item list-group-item-action';
     $link.setAttribute('href', '#');

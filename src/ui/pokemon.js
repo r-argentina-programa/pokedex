@@ -1,3 +1,7 @@
+/**
+ * @typedef {import('../entidades/pokemon').default} Pokemon
+ */
+
 import { actualizarTextoAyuda } from './general.js';
 
 function mostrarTipos(tipos) {
@@ -49,30 +53,30 @@ function mostrarHabilidades(habilidades) {
   });
 }
 
+/**
+ * @param {Pokemon} pokemon
+ */
 export default function mostrarPokemon(pokemon) {
   const {
     id,
-    name: nombre,
-    sprites: { front_default: fotoPrincipal },
-    types: tipos,
-    abilities: habilidades,
-    moves: movimientos,
+    nombre,
+    foto,
+    tipos,
+    habilidades,
+    movimientos,
   } = pokemon;
 
   document.querySelector('#pokemon-contenedor').style.display = 'block';
   actualizarTextoAyuda('');
 
   const $imagen = document.querySelector('#pokemon-imagen');
-  $imagen.setAttribute('src', fotoPrincipal);
+  $imagen.setAttribute('src', foto);
   $imagen.setAttribute('alt', `Imagen frontal del pokemon ${nombre}`);
 
   document.querySelector('#pokemon-nombre').textContent = nombre;
   document.querySelector('#pokemon-id').textContent = id;
 
-  mostrarTipos(tipos.map((item) => item.type.name));
-  mostrarHabilidades(habilidades.map((item) => item.ability.name));
-  mostrarMovimientos(movimientos.map((item) => ({
-    movimiento: item.move.name,
-    versiones: item.version_group_details.map((v) => v.version_group.name),
-  })));
+  mostrarTipos(tipos);
+  mostrarHabilidades(habilidades);
+  mostrarMovimientos(movimientos);
 }
