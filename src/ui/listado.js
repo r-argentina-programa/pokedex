@@ -1,8 +1,21 @@
+/**
+ * @typedef {import('../entidades/pokemon').default} Pokemon
+ */
+
 export function actualizarTextoIndicePokemones(texto) {
   const $indice = document.querySelector('#indice');
   $indice.textContent = texto;
 }
 
+/**
+ * @callback pokemonSeleccionadoCallback
+ * @param {string} nombre
+ */
+
+/**
+ * @param {Array<Pokemon>} pokemones
+ * @param {pokemonSeleccionadoCallback} pokemonSeleccionadoCallback
+ */
 export function mostrarListadoPokemones(pokemones, pokemonSeleccionadoCallback = () => {}) {
   const $indice = document.querySelector('#indice');
   $indice.innerHTML = '';
