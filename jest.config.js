@@ -4,4 +4,5 @@ module.exports = {
   coverageDirectory: '../coverage/',
   testPathIgnorePatterns: ['/node_modules/', '.*fixture.js'],
   coveragePathIgnorePatterns: ['/node_modules/', '.*fixture.js'],
+  resolver: "jest-ts-webcompat-resolver"
 };

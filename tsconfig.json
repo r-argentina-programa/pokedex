@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-      "module": "ES2015",
+      "module": "ES6",
       "moduleResolution": "node",
       "declaration": true,
       "removeComments": true,
@@ -8,7 +8,7 @@
       "experimentalDecorators": true,
       "allowSyntheticDefaultImports": true,
       "allowJs": true,
-      "target": "ES2015",
+      "target": "ES6",
       "sourceMap": true,
       "outDir": "./dist",
       "baseUrl": "./",
@@ -17,8 +17,7 @@
     },
     "exclude": [
       "./dist",
-      "./src/**/__test__",
-      "./src/**/__tests__"
+      "node_modules"
     ],
     "include": [
       "./src"

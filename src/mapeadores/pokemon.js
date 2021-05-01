@@ -1,6 +1,6 @@
-import Pokemon from '../entidades/pokemon.js';
-import Movimiento from '../entidades/movimiento.js';
-import ListadoPokemones from '../entidades/listadoPokemones.ts';
+import Pokemon from '../entidades/pokemon';
+import Movimiento from '../entidades/movimiento';
+import ListadoPokemones from '../entidades/listadoPokemones';
 
 /**
  * @param {Object} datosApi
