@@ -1,0 +1,26 @@
+{
+    "compilerOptions": {
+      "module": "ES2015",
+      "moduleResolution": "node",
+      "declaration": true,
+      "removeComments": true,
+      "emitDecoratorMetadata": true,
+      "experimentalDecorators": true,
+      "allowSyntheticDefaultImports": true,
+      "allowJs": true,
+      "target": "ES2015",
+      "sourceMap": true,
+      "outDir": "./dist",
+      "baseUrl": "./",
+      "incremental": true,
+      "strict": true
+    },
+    "exclude": [
+      "./dist",
+      "./src/**/__test__",
+      "./src/**/__tests__"
+    ],
+    "include": [
+      "./src"
+    ]
+  }
