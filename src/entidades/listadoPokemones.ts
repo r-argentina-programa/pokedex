@@ -1,4 +1,4 @@
 export default class ListadoPokemones {
-  constructor(private total: number, private siguienteUrl: string, private anteriorUrl: string, private nombresPokemones: string[]) {
+  constructor(public total: number, public siguienteUrl: string, public anteriorUrl: string, public nombresPokemones: string[]) {
   }
 }
