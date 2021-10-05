@@ -1,19 +1,19 @@
-import manejarCambioPagina from "../paginador.js"
-import paginadorFixture from "./paginador.fixture.js"
+import {  manejarCambioPagina} from "../paginador";
+import fixture from "./paginador.fixture"
 
-describe('Maneja el cambio de pagina',()=>{
-it('Maneja el cambio de página', () => {
-    document.body.innerHTML = paginadorFixture;
+document.body.innerHTML = fixture;
+const mockCallback = jest.fn();
 
-    const mockCallback = jest.fn();
-
-    const $paginador = document.querySelector('#paginador');
-    // $paginador.onclick = (e)=>{
-    //     manejarCambioPagina(e, mockCallback);
-    // }
-    
-    $paginador.onclick = e => {manejarCambioPagina(e,mockCallback)};
-    document.querySelector('#paginador-a').click();
-    expect(mockCallback).toHaveBeenCalledTimes(1);
-})
+describe('Maneja el cambio de paǵina',()=>{
+    document.querySelector("#paginador").onclick= (e)=>{
+        manejarCambioPagina(e,mockCallback)
+    }
+    it('Maneja el cambio de pagina cuando hay un numero',()=>{
+        document.querySelector("#paginador-a").click();
+        expect(mockCallback).toHaveBeenCalledWith(31);
+    })
+    it('No ejecuta el cambio de pagina si no cumple las condiciones',()=>{
+        document.querySelector("#paginador-b").click();
+        expect(mockCallback).toHaveBeenLastCalledWith("");
+    })
 })
