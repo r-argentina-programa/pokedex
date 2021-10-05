@@ -1,0 +1,1 @@
+import fixture from ".../__tests__/pokedex.fixture.js"
