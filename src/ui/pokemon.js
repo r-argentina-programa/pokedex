@@ -65,7 +65,6 @@ export default function mostrarPokemon(pokemon) {
     habilidades,
     movimientos,
   } = pokemon;
-
   document.querySelector('#pokemon-contenedor').style.display = 'block';
   actualizarTextoAyuda('');
 
