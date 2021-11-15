@@ -1,5 +1,4 @@
 import mostrarPaginador from '../paginador.js';
-import manejarCambioPagina from '../paginador.js';
 import fixture from '../../__tests__/pokedex.fixture.js';
 
 beforeEach(() => {
