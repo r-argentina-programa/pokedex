@@ -15,6 +15,7 @@ function crearItemPaginador(texto, url = '#') {
 export function manejarCambioPagina(e, callbackPaginaSeleccionada = () => {}) {
   e.preventDefault();
   const { target } = e;
+  console.log(target.dataset);
   const href = target.getAttribute('href');
   let numeroPagina;
   const { pagina } = target.dataset;
