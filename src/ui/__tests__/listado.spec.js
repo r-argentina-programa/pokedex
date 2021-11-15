@@ -18,6 +18,7 @@ test('muestra listado pokemon', () => {
     let pokemones = document.querySelectorAll('a.list-group-item.list-group-item-action')
     expect(pokemones).toHaveLength(20);
 
-    pokemones[4].click();
+    const numeroAleatorio = Math.floor(Math.random() * 20);
+    pokemones[numeroAleatorio].click();
     expect(pokemonCallBack).toHaveBeenCalledTimes(1);
 });

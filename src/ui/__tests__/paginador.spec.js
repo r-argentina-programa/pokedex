@@ -7,24 +7,28 @@ beforeEach(() => {
 
 describe('Prueba mostrar paginador', () => {
     const mockCallback = jest.fn();
+    const TOTAL_POKEMONES = 1118;
+    const POKEMONES_POR_PAGINA = 20;
+    const SUMA_SIGUIENTE_ANTERIOR = 2;
+
     test('Prueba la función', () => {
         mostrarPaginador(
-            1118,
+            TOTAL_POKEMONES,
             2,
             'https://urlsiguiente.com',
             'https://urlanterior.com',
             mockCallback
         );
 
-        let paginador = document.querySelector('#paginador');
-        let totalItemsPaginador = paginador.querySelectorAll('li');
-        let totalPaginas = Math.ceil(1118/20) + 2;
+        const paginador = document.querySelector('#paginador');
+        const totalItemsPaginador = paginador.querySelectorAll('li');
+        const totalPaginas = Math.ceil(TOTAL_POKEMONES/ POKEMONES_POR_PAGINA) + SUMA_SIGUIENTE_ANTERIOR;
         expect(totalItemsPaginador).toHaveLength(totalPaginas);
     });
 
     test('Prueba cambio de página', () => {
         mostrarPaginador(
-            1118,
+            TOTAL_POKEMONES,
             2,
             'https://urlsiguiente.com',
             'https://urlanterior.com',
@@ -38,29 +42,27 @@ describe('Prueba mostrar paginador', () => {
 
     test('Prueba que el botón anterior no esté habilitado', () => {
         mostrarPaginador(
-            1118,
+            TOTAL_POKEMONES,
             1,
             'https://urlsiguiente.com',
             '',
             mockCallback
         );
 
-        let anterior = document.querySelector('#paginador > li.page-item.disabled');
-        expect(anterior.textContent).toEqual('Anterior');
-        expect(anterior.classList).toContain('disabled');
+        const anterior = document.querySelector('#paginador > li.page-item.disabled')
+        expect(anterior.classList.contains('disabled')).toBe(true);
     });
 
     test('Prueba que el botón siguiente no esté habilitado', () => {
         mostrarPaginador(
-            1118,
+            TOTAL_POKEMONES,
             56,
             '',
             'https://urlanterior.com',
             mockCallback
         );
 
-        let siguiente = document.querySelector("#paginador > li.page-item.disabled");
-        expect(siguiente.textContent).toEqual('Siguiente');
-        expect(siguiente.classList).toContain('disabled');
+        const siguiente =  document.querySelector("#paginador > li.page-item.disabled");
+        expect(siguiente.classList.contains('disabled')).toBe(true);
     });
 });
