@@ -20,7 +20,7 @@ function mostrarMovimientos(movimientos) {
   const $movimientos = document.querySelector('#movimientos');
 
   movimientos.forEach((movimiento) => {
-    const { movimiento: nombreMovimiento, versiones } = movimiento;
+    const { nombre: nombreMovimiento, versiones } = movimiento;
     const $movimientoFila = document.createElement('tr');
     const $movimiento = document.createElement('th');
     $movimiento.setAttribute('scope', 'row');
@@ -38,6 +38,8 @@ function mostrarMovimientos(movimientos) {
 
     $movimientoFila.appendChild($versiones);
     $movimientos.appendChild($movimientoFila);
+
+    
   });
 }
 
@@ -65,7 +67,6 @@ export default function mostrarPokemon(pokemon) {
     habilidades,
     movimientos,
   } = pokemon;
-
   document.querySelector('#pokemon-contenedor').style.display = 'block';
   actualizarTextoAyuda('');
 
@@ -79,4 +80,5 @@ export default function mostrarPokemon(pokemon) {
   mostrarTipos(tipos);
   mostrarHabilidades(habilidades);
   mostrarMovimientos(movimientos);
-}
+  
+ }
