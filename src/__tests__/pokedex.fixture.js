@@ -5,7 +5,8 @@ export default `<div class="container">
     <div class="container">
         <nav aria-label="Page navigation example">
             <ul class="pagination flex-wrap" id="paginador">
-                <!-- -->
+            <li class="page-item"><a class="page-link" id="pagina-77" href="#" data-pagina="77">77</a></li>
+            <li class="page-item"><a class="page-link" id="pagina-incorrecta" href="" data-pagina="25">77</a></li>
             </ul>
         </nav>
     </div>
