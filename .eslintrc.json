@@ -5,9 +5,7 @@
     "cypress/globals": true,
     "jest/globals": true
   },
-  "extends": [
-    "airbnb-base"
-  ],
+  "extends": ["airbnb-base"],
   "globals": {
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly"
@@ -16,10 +14,7 @@
     "ecmaVersion": 2018,
     "sourceType": "module"
   },
-  "plugins": [
-    "cypress",
-    "jest"
-  ],
+  "plugins": ["cypress", "jest"],
   "rules": {
     "import/extensions": [
       "error",
