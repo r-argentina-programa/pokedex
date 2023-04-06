@@ -1,4 +1,4 @@
-import mostrarPaginador from "../paginador";
+import mostrarPaginador, { manejarCambioPagina } from "../paginador";
 
 beforeEach(() => {
   document.body.innerHTML = '<div id="paginador"></div>';
@@ -42,4 +42,71 @@ describe("Tests de mostrarPaginador()", () => {
     mostrarPaginador(TOTAL_POKEMONES,PAGINA_ACTUAL,URL_SIGUIENTE,URL_ANTERIOR);
     document.querySelector("a[href='#']").click();
   });
+});
+
+describe("Tests de manejarCambioPagina", () => {
+  test("maneja cambio de pagina con una pagina numerada", () => {
+    let mockEvento = {
+      preventDefault: jest.fn(),
+      target: {
+        dataset:{
+          pagina: "10"
+        },
+        getAttribute: jest.fn((atributoPedido) => {
+          let atributos = {
+            href: "#"
+          }
+          return atributos[atributoPedido];
+        })
+      }
+    }
+
+    manejarCambioPagina(mockEvento,mockCallback);
+    expect(mockCallback)
+      .toHaveBeenCalledWith(10)
+  });
+
+  test("Maneja cambio de pagina con pagina sin numerar", () => {
+    jest.clearAllMocks();
+
+    let mockEvento = {
+      preventDefault: jest.fn(),
+      target: {
+        dataset:{
+          pagina: "10"
+        },
+        getAttribute: jest.fn((atributoPedido) => {
+          let atributos = {
+            href: "https://hrefprueba.com/"
+          }
+          return atributos[atributoPedido];
+        })
+      }
+    };
+
+    manejarCambioPagina(mockEvento,mockCallback);
+
+    expect(mockCallback)
+      .toHaveBeenCalledTimes(1);
+    expect(mockCallback)  
+      .toHaveBeenCalledWith("https://hrefprueba.com/");
+  });
+
+  test("Maneja cambio de pagina con callback predeterminado", () => {
+    let eventoMock = {
+      preventDefault: jest.fn(),
+      target:{
+        dataset:{
+          pagina: "11"
+        },
+        getAttribute: jest.fn((atributo) => {
+          let atributos = {
+            href: "https://prueba.com"
+          }
+          return atributos[atributo];
+        })
+      }
+    };
+    manejarCambioPagina(eventoMock);
+  })
 });
