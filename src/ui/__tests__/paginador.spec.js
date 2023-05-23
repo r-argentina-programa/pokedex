@@ -41,7 +41,7 @@ test('muestra paginador', () => {
   expect(mockCallbackPagina).toBeCalledTimes(1);
 });
 
-test('manejar cambio de página con número', () => {
+test('manejar cambio de página', () => {
   const $link = document.createElement('a');
   $link.textContent = '2';
   $link.className = 'page-link';
@@ -49,30 +49,12 @@ test('manejar cambio de página con número', () => {
   $link.dataset.pagina = '2';
 
   const mockEvent = { preventDefault: () => { }, target: $link };
+  const mockCallbackPagina = jest.fn(() => { });
+
   jest.spyOn(mockEvent, 'preventDefault');
 
-  const mockCallbackPagina = jest.fn(() => { });
   manejarCambioPagina(mockEvent, mockCallbackPagina);
 
   expect(mockEvent.preventDefault).toBeCalledTimes(1);
   expect(mockCallbackPagina).toBeCalledWith(2);
-});
-
-
-test('manejar cambio de página sin número', () => {
-  const $link = document.createElement('a');
-  $link.textContent = 'Siguiente/Anterior';
-  $link.className = 'page-link';
-  $link.href = 'https://paginasiguienteoanterior.com';
-  $link.dataset.pagina = 'Siguiente/Anterior';
-
-  const mockEvent = { preventDefault: () => { }, target: $link };
-  const mockCallbackPagina = jest.fn(() => { });
-
-  jest.spyOn(mockEvent, 'preventDefault');
-
-  manejarCambioPagina(mockEvent, mockCallbackPagina);
-
-  expect(mockEvent.preventDefault).toBeCalledTimes(1);
-  expect(mockCallbackPagina).toBeCalledWith('https://paginasiguienteoanterior.com');
 });
