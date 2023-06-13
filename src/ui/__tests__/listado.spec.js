@@ -13,6 +13,6 @@ test('Se asegura que al dar click a un link se ejecute la funcion pasada', () =>
   document.body.innerHTML = '<div class="list-group" id="indice">';
   mostrarListadoPokemones(['Bulbasaur', 'Charmander', 'Squirtle'], miMock());
   const $pokemon = document.querySelectorAll('#indice a');
-  $pokemon[1].click();
+  $pokemon[2].click();
   expect(miMock).toHaveBeenCalledTimes(1);
 });
