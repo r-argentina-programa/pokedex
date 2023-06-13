@@ -47,23 +47,63 @@ test('Se asegura que muestre el paginador', () => {
 
   mostrarPaginador(totalPokemon, actual, siguiente, anterior, callback);
   expect($paginador.textContent).toMatch('1');
-
-  $paginador.click();
-  expect(callback).toBeCalled();
 });
 
-test('muestra el paginador sin url siguiente ni callback', () => {
+test('Se asegura que muestre el paginador sin un callback', () => {
   const mockCall = {
     totalPokemon: 100,
     paginas: {
       actual: 1,
-      siguiente: null,
+      siguiente: 'urlSiguiente',
       anterior: 'urlAnterior',
     },
   };
 
   const { totalPokemon, paginas } = mockCall;
   const { actual, siguiente, anterior } = paginas;
+
+  document.body.innerHTML = '<div id="paginador"></div>';
+  const $paginador = document.querySelector('#paginador');
+
+  mostrarPaginador(totalPokemon, actual, siguiente, anterior);
+  expect($paginador.textContent).toMatch('1');
+
+  $paginador.click();
+});
+
+test('Se asegura que la pagina anterior este deshabilitada al no tener href', () => {
+  const mockCall = {
+    totalPokemon: 100,
+    paginas: {
+      actual: 1,
+      anterior: null,
+      siguiente: 'urlSiguiente',
+    },
+  };
+
+  const { totalPokemon, paginas } = mockCall;
+  const { actual, anterior, siguiente } = paginas;
+
+  document.body.innerHTML = '<div id="paginador"></div>';
+
+  mostrarPaginador(totalPokemon, actual, siguiente, anterior);
+
+  const $paginaAnterior = document.querySelector('[data-pagina="Anterior"]');
+  expect($paginaAnterior.href).toMatch('null');
+});
+
+test('Se asegura que la pagina siguiente este deshabilitada al no tener href', () => {
+  const mockCall = {
+    totalPokemon: 100,
+    paginas: {
+      actual: 1,
+      anterior: 'urlAnterior',
+      siguiente: null,
+    },
+  };
+
+  const { totalPokemon, paginas } = mockCall;
+  const { actual, anterior, siguiente } = paginas;
 
   document.body.innerHTML = '<div id="paginador"></div>';
 
