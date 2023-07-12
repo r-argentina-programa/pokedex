@@ -1,4 +1,6 @@
-import { BASE_URL, cargarPokemon, cargarPokemones, LIMITE_POKEMONES } from '../pokemon.js';
+import {
+  BASE_URL, cargarPokemon, cargarPokemones, LIMITE_POKEMONES,
+} from '../pokemon.js';
 
 beforeEach(() => {
   global.fetch = jest.fn();
