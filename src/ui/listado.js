@@ -8,11 +8,6 @@ export function actualizarTextoIndicePokemones(texto) {
 }
 
 /**
- * @callback pokemonSeleccionadoCallback
- * @param {string} nombre
- */
-
-/**
  * @param {Array<string>} nombresPokemones
  * @param {pokemonSeleccionadoCallback} pokemonSeleccionadoCallback
  */
