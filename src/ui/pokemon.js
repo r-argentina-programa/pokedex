@@ -18,7 +18,6 @@ function mostrarTipos(tipos) {
 
 function mostrarMovimientos(movimientos) {
   const $movimientos = document.querySelector('#movimientos');
-
   movimientos.forEach((movimiento) => {
     const { movimiento: nombreMovimiento, versiones } = movimiento;
     const $movimientoFila = document.createElement('tr');
@@ -66,6 +65,7 @@ export default function mostrarPokemon(pokemon) {
     movimientos,
   } = pokemon;
 
+  
   document.querySelector('#pokemon-contenedor').style.display = 'block';
   actualizarTextoAyuda('');
 

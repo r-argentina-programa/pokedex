@@ -16,6 +16,7 @@ export function mapearPokemon(datosApi) {
     moves: movimientos,
   } = datosApi;
 
+  
   return new Pokemon(
     id,
     nombre,

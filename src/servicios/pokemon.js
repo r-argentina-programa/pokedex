@@ -37,6 +37,7 @@ export async function cargarPokemon(id) {
     guardarPokemon(id, pokemon);
   }
 
+
   return pokemon;
 }
 
