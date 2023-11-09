@@ -1,3 +1,5 @@
+/* eslint-disable linebreak-style */
+
 function crearItemPaginador(texto, url = '#') {
   const $item = document.createElement('li');
   const $link = document.createElement('a');
@@ -26,7 +28,7 @@ export function manejarCambioPagina(e, callbackPaginaSeleccionada = () => {}) {
   }
 }
 
-export default function mostrarPaginador(
+export function mostrarPaginador(
   totalPokemones,
   paginaActual,
   urlSiguiente,

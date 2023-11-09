@@ -1,3 +1,5 @@
+/* eslint-disable linebreak-style */
+
 import { actualizarTextoAyuda, mostrarTotalPokemones } from '../general.js';
 
 test('actualiza el texto de ayuda', () => {
