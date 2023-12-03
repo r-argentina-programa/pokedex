@@ -25,4 +25,7 @@ test('muestra el pokemon', () => {
 
   expect(document.querySelector('#tipos').children.length).toBe(pokemon.tipos.length);
   expect(document.querySelector('#tipos').children[0].textContent).toBe(pokemon.tipos[0]);
+
+  expect(document.querySelector('#habilidades').children.length).toBe(pokemon.habilidades.length);
+  expect(document.querySelector('#habilidades').children[0].textContent).toBe(pokemon.habilidades[0]);
 });
