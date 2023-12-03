@@ -11,12 +11,12 @@ test('muestra el pokemon', () => {
     habilidades: ['habilidad1', 'habilidad2'],
     movimientos: [
       {
-        nombre: 'movimiento1',
-        versiones: ['version1', 'version2'],
+        'movimiento': 'movimiento1',
+        'versiones': ['version1', 'version2']
       },
       {
-        nombre: 'movimiento2',
-        versiones: ['version3', 'version4'],
+        'movimiento': 'movimiento2',
+        'versiones': ['version3', 'version4']
       },
     ],
   };
@@ -28,4 +28,8 @@ test('muestra el pokemon', () => {
 
   expect(document.querySelector('#habilidades').children.length).toBe(pokemon.habilidades.length);
   expect(document.querySelector('#habilidades').children[0].textContent).toBe(pokemon.habilidades[0]);
+
+  expect(document.querySelector('#movimientos').children.length).toBe(pokemon.movimientos.length);
+  expect(document.querySelector('#movimientos > tr:nth-child(1) > th').textContent).toBe(pokemon.movimientos[0].movimiento);
+
 });
