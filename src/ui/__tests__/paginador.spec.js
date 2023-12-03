@@ -1,23 +1,45 @@
 import mostrarPaginador, { manejarCambioPagina } from '../paginador';
 
-test('maneja el cambio de pagina', () => {
-  const callback = jest.fn();
-  const e = {
-    preventDefault: jest.fn(),
-    target: {
-      getAttribute: () => '#',
-      dataset: {
-        pagina: '1',
+describe('maneja el cambio de página', () => {
+  it('cambia a la página numero 1', () => {
+    const callback = jest.fn();
+    const e = {
+      preventDefault: jest.fn(),
+      target: {
+        getAttribute: () => '#',
+        dataset: {
+          pagina: '1',
+        },
       },
-    },
-  };
-  manejarCambioPagina(e, callback);
-  expect(e.preventDefault)
-    .toHaveBeenCalledTimes(1);
-  expect(callback)
-    .toHaveBeenCalledTimes(1);
-  expect(callback)
-    .toHaveBeenCalledWith(1);
+    };
+    manejarCambioPagina(e, callback);
+    expect(e.preventDefault)
+      .toHaveBeenCalledTimes(1);
+    expect(callback)
+      .toHaveBeenCalledTimes(1);
+    expect(callback)
+      .toHaveBeenCalledWith(1);
+  });
+  it('cambia la página por referencia', () => {
+    const callback = jest.fn();
+    const testConst = '';
+    const e = {
+      preventDefault: jest.fn(),
+      target: {
+        getAttribute: () => testConst,
+        dataset: {
+          pagina: '',
+        },
+      },
+    };
+    manejarCambioPagina(e, callback);
+    expect(e.preventDefault)
+      .toHaveBeenCalledTimes(1);
+    expect(callback)
+      .toHaveBeenCalledTimes(1);
+    expect(callback)
+      .toHaveBeenCalledWith(testConst);
+  });
 });
 
 describe('muestra el paginador', () => {
