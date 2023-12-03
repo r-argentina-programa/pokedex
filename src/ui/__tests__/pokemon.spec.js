@@ -21,4 +21,5 @@ test('muestra el pokemon', () => {
     ],
   };
   mostrarPokemon(pokemon);
+  expect(document.querySelector('#pokemon-imagen').src).not.toBe('');
 });
