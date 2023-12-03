@@ -22,4 +22,7 @@ test('muestra el pokemon', () => {
   };
   mostrarPokemon(pokemon);
   expect(document.querySelector('#pokemon-imagen').src).not.toBe('');
+
+  expect(document.querySelector('#tipos').children.length).toBe(pokemon.tipos.length);
+  expect(document.querySelector('#tipos').children[0].textContent).toBe(pokemon.tipos[0]);
 });
