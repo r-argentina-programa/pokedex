@@ -20,9 +20,21 @@ test('maneja el cambio de pagina', () => {
     .toHaveBeenCalledWith(1);
 });
 
-test('muestra el paginador', () => {
-  document.body.innerHTML = '<div id="paginador"></div>';
-  mostrarPaginador(100, 1, '#', '#', jest.fn());
-  expect(document.querySelector('#paginador').children.length).toBe(7);
-  expect(document.querySelector('#paginador').children[0].classList.contains('disabled'));
+describe('muestra el paginador', () => {
+  it('prueba la creacion de url anterior y siguiente no deshabilitados', () => {
+    document.body.innerHTML = '<div id="paginador"></div>';
+    mostrarPaginador(100, 1, true, true, jest.fn());
+    expect(document.querySelector('#paginador').children.length).toBe(7);
+    expect(document.querySelector('#paginador').children[0].classList.contains('disabled')).toBeFalsy();
+    expect(document.querySelector('#paginador').lastChild.classList.contains('disabled')).toBeFalsy();
+  });
+
+  it('prueba la creacion de url anterior y siguiente deshabilitados', () => {
+    document.body.innerHTML = '<div id="paginador"></div>';
+    mostrarPaginador(100, 1, false, false, jest.fn());
+    expect(document.querySelector('#paginador').children.length).toBe(7);
+    expect(document.querySelector('#paginador').children[0].classList.contains('disabled')).toBeTruthy();
+    expect(document.querySelector('#paginador').lastChild.classList.contains('disabled')).toBeTruthy();
+  });
+
 });
