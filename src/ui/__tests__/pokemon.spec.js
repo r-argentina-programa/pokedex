@@ -32,4 +32,7 @@ test('muestra el pokemon', () => {
   expect(document.querySelector('#movimientos').children.length).toBe(pokemon.movimientos.length);
   expect(document.querySelector('#movimientos > tr:nth-child(1) > th').textContent).toBe(pokemon.movimientos[0].movimiento);
 
+  expect(Number(document.querySelector('#pokemon-id').textContent)).toBe(pokemon.id);
+
+  expect(document.querySelector('#pokemon-nombre').textContent).toBe(pokemon.nombre);
 });
