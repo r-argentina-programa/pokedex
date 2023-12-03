@@ -19,3 +19,10 @@ test('maneja el cambio de pagina', () => {
   expect(callback)
     .toHaveBeenCalledWith(1);
 });
+
+test('muestra el paginador', () => {
+  document.body.innerHTML = '<div id="paginador"></div>';
+  mostrarPaginador(100, 1, '#', '#', jest.fn());
+  expect(document.querySelector('#paginador').children.length).toBe(7);
+  expect(document.querySelector('#paginador').children[0].classList.contains('disabled'));
+});
