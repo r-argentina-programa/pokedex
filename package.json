@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "test": "jest --collect-coverage",
-    "test:dev": "jest --watch",
+    "test:dev": "jest --watchAll",
     "test:ui": "run-p serve test:cypress",
     "test:ui:dev": "run-p serve test:cypress:dev",
     "test:cypress": "cypress run",
