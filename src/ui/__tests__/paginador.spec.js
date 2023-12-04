@@ -1,4 +1,4 @@
-import mostrarPaginador, { manejarCambioPagina } from '../paginador';
+import mostrarPaginador, { manejarCambioPagina } from '../paginador.js';
 
 describe('maneja el cambio de página', () => {
   it('cambia a la página numero 1', () => {
