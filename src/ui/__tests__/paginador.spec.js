@@ -59,4 +59,12 @@ describe('muestra el paginador', () => {
     expect(document.querySelector('#paginador').lastChild.classList.contains('disabled')).toBeTruthy();
   });
 
+  it('llama a manejarCambioPagina', async () => {
+    document.body.innerHTML = '<div id="paginador"></div>';
+    const funcionEspia = jest.fn();
+    mostrarPaginador(100, 1, true, true, funcionEspia);
+    const eventoClick = new Event('click');
+    document.querySelector('#paginador').dispatchEvent(eventoClick);
+    expect(funcionEspia).toHaveBeenCalled();
+  });
 });
