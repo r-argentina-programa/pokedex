@@ -1,4 +1,4 @@
-import { actualizarTextoIndicePokemones, mostrarListadoPokemones } from '../listado';
+import { actualizarTextoIndicePokemones, mostrarListadoPokemones } from '../listado.js';
 
 test('actualiza el texto de indice de pokemons', () => {
   document.body.innerHTML = '<div id="indice"></div>';
