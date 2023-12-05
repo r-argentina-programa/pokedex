@@ -17,3 +17,12 @@ describe('pruebas de listado', () => {
       .toContain('test');
   });
   
+  it('hace click al boton de pokemon', async () => {
+    document.body.innerHTML = '<div id="indice"></div>';
+    const funcionEspia = jest.fn();
+    mostrarListadoPokemones(['test'], funcionEspia);
+    const eventoClick = new Event('click');
+    document.querySelector('.list-group-item').dispatchEvent(eventoClick);
+    expect(funcionEspia).toHaveBeenCalledWith('test');
+  });
+});
