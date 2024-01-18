@@ -17,15 +17,19 @@ function mostrarTipos(tipos) {
 }
 
 function mostrarMovimientos(movimientos) {
+  
   const $movimientos = document.querySelector('#movimientos');
-
+  
   movimientos.forEach((movimiento) => {
+    
     const { movimiento: nombreMovimiento, versiones } = movimiento;
     const $movimientoFila = document.createElement('tr');
     const $movimiento = document.createElement('th');
     $movimiento.setAttribute('scope', 'row');
-    $movimiento.textContent = nombreMovimiento;
+    $movimiento.textContent = movimiento.nombre;
+    
     $movimientoFila.appendChild($movimiento);
+    
 
     const $versiones = document.createElement('td');
 
